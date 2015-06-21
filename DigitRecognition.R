@@ -2,7 +2,6 @@
 #Author Raghav Nayak M
 
 library(e1071)
-library(caret)
 
 #Read training and test dataset
 train <- read.csv("train.csv", header=TRUE)
@@ -10,10 +9,6 @@ test <- read.csv("test.csv", header=TRUE)
 labels <- train[,1]
 train <- train[,-1]
 
-#Normalize data
-norm = preProcess(train)
-train = predict(norm, train)
-test = predict(norm, test)
 
 #Start applying PCA for dimentionality reduction
 nw <- cov(train);
